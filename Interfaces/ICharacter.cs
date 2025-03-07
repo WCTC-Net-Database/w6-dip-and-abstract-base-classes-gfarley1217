@@ -5,6 +5,8 @@
         void Attack(ICharacter target);
         void Move();
         string Name { get; set; }
+        int Gold { get; set; } // Added this
     }
+
 
 }

@@ -1,4 +1,5 @@
 ﻿using W6_assignment_template.Data;
+using W6_assignment_template.Interfaces;
 using W6_assignment_template.Models;
 
 namespace W6_assignment_template.Services
@@ -6,14 +7,14 @@ namespace W6_assignment_template.Services
     public class GameEngine
     {
         private readonly IContext _context;
-        private readonly Player _player;
-        private readonly Goblin _goblin;
+        private readonly ICharacter? _player;
+        private readonly ICharacter? _goblin;
 
         public GameEngine(IContext context)
         {
             _context = context;
-            _player = context.Characters.OfType<Player>().FirstOrDefault();
-            _goblin = _context.Characters.OfType<Goblin>().FirstOrDefault();
+            _player = (ICharacter?)context.Characters.OfType<Warrior>().FirstOrDefault(); // Copilot changes made here
+            _goblin = (ICharacter?)context.Characters.OfType<Goblin>().FirstOrDefault(); // Copilot changes made here
         }
 
         public void Run()
@@ -33,15 +34,7 @@ namespace W6_assignment_template.Services
             _player.Attack(_goblin);
 
             Console.WriteLine($"Player Gold: {_player.Gold}");
-
-            // Example CRUD operations for Goblin
-            //var newGoblin = new Goblin("New Goblin", "Goblin", 1, 30, "None");
-            //_context.AddCharacter(newGoblin);
-
-            //newGoblin.Level = 2;
-            //_context.UpdateCharacter(newGoblin);
-
-            //_context.DeleteCharacter("New Goblin");
         }
     }
+
 }
