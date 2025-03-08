@@ -1,13 +1,12 @@
-﻿namespace W6_assignment_template.Models
+﻿using W6_assignment_template.Interfaces;
+
+namespace W6_assignment_template.Models
 {
     public class Player : CharacterBase
     {
-        public int Gold { get; set; }
-
-        public Player(string name, string type, int level, int hp, int gold)
-            : base(name, type, level, hp)
+        public Player(string name, int hitPoints, int level, IRoom startingRoom, int gold)
+            : base(name, hitPoints, level, startingRoom, gold)
         {
-            Gold = gold;
         }
 
         public override void UniqueBehavior()

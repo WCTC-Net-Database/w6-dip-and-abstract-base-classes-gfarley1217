@@ -6,8 +6,8 @@ namespace W6_assignment_template.Models
     {
         public string Treasure { get; set; }
 
-        public Ghost(string name, string type, int level, int hp, string treasure)
-            : base(name, type, level, hp)
+        public Ghost(string name, int hitPoints, int level, IRoom startingRoom, int gold, string treasure)
+            : base(name, hitPoints, level, startingRoom, gold)
         {
             Treasure = treasure;
         }

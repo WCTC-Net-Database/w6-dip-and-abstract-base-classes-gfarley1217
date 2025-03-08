@@ -11,30 +11,20 @@ namespace W6_assignment_template.Abstracts
     {
         public string Name { get; set; }
         public int HitPoints { get; set; }
-        public string Class { get; set; }
         public int Level { get; set; }
-        public int Gold { get; set; } // Implementing Gold property
-        protected IRoom CurrentRoom { get; set; }
+        public IRoom StartingRoom { get; set; }
+        public int Gold { get; set; }
 
-        protected CharacterBase(string name, int hitPoints, string characterClass, int level, IRoom startingRoom)
+        protected CharacterBase(string name, int hitPoints, int level, IRoom startingRoom, int gold)
         {
             Name = name;
             HitPoints = hitPoints;
-            Class = characterClass;
             Level = level;
-            CurrentRoom = startingRoom;
-            CurrentRoom.Enter();
+            StartingRoom = startingRoom;
+            Gold = gold;
         }
 
-        public void MoveToRoom(IRoom room)
-        {
-            CurrentRoom = room;
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{Name} has entered {CurrentRoom.Name}. {CurrentRoom.Description}");
-            Console.ResetColor();
-        }
-
-        public abstract void PerformSpecialAction();
+        public abstract void UniqueBehavior();
 
         // Implementing ICharacter methods
         public void Attack(ICharacter target)
@@ -50,6 +40,8 @@ namespace W6_assignment_template.Abstracts
 
 
 }
+
+
 
 
 

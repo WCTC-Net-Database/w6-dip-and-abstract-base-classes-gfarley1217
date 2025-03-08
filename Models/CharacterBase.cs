@@ -2,7 +2,7 @@
 
 namespace W6_assignment_template.Models
 {
-    public abstract class CharacterBase
+    public abstract class CharacterBase : ICharacter
     {
         public string Name { get; set; }
         public int HitPoints { get; set; }
@@ -20,5 +20,18 @@ namespace W6_assignment_template.Models
         }
 
         public abstract void UniqueBehavior();
+
+       
+        public void Attack(ICharacter target)
+        {
+         
+        }
+
+        public void Move()
+        {
+            
+        }
+
+        public abstract void PerformSpecialAction(); // Add this method
     }
 }

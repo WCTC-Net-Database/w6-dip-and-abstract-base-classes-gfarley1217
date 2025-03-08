@@ -15,21 +15,18 @@ namespace W6_assignment_template.Models
         {
         }
 
-        // Removed the override keyword as PerformSpecialAction is not in the base class
-        public void PerformSpecialAction()
+        public override void PerformSpecialAction()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"{Name} performs a powerful attack!");
             Console.ResetColor();
         }
 
-        // Implementing abstract method from CharacterBase
+        
         public override void UniqueBehavior()
         {
-            // Implementation of UniqueBehavior method
+            
         }
     }
-
-
-
 }
+
